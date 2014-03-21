@@ -30,7 +30,31 @@
                 <webflow:flow-location-pattern value="/**/*-flow.xml" />
         </webflow:flow-registry>
         
+        <faces:flow-builder-services id="facesFlowBuilderServices" development="true" />
         
+        <faces:resources />
+        
+        <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+                <property name="order" value="1"/>
+                <property name="flowRegistry" ref="flowRegistry" />
+                <property name="defaultHandler">
+                        <bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+                </property>
+        </bean>
+        
+       <bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+                <property name="flowExecutor" ref="flowExecutor" />
+        </bean>
+        
+        <bean id="faceletsViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+                <property name="viewClass" value="org.springframework.faces.mvc.JsfView"/>
+                <property name="prefix" value="/WEB-INF/" />
+                <property name="suffix" value=".xhtml" />
+        </bean>
+        
+        <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+        
+        <bean id="securityFlowExecutionListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" /> 
             
                         
                         
