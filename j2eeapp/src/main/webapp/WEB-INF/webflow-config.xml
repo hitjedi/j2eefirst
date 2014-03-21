@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+           xmlns:faces="http://www.springframework.org/schema/faces"
+           xsi:schemaLocation="
+                        http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/webflow-config
+                        http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+                        http://www.springframework.org/schema/faces
+                        http://www.springframework.org/schema/faces/spring-faces.xsd">
+           
+        <bean id="jpaFlowExecutionListener" class="org.springframework.webflow.persistence.JpaFlowExecutionListener">
+                <constructor-arg ref="entityManagerFactory" />
+                <constructor-arg ref="transactionManager" />
+        </bean>  
+        
+      	<bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
+        
+        <webflow:flow-executor id="flowExecutor">
+                <webflow:flow-execution-listeners>
+                        <webflow:listener ref="jpaFlowExecutionListener" />
+                        <webflow:listener ref="facesContextListener"/>
+                        <webflow:listener ref="securityFlowExecutionListener"/>
+                </webflow:flow-execution-listeners>
+        </webflow:flow-executor>       
+        
+            
+                        
+                        
+</beans>
+                        
