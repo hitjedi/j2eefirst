@@ -9,7 +9,7 @@
          <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
                 <property name="connectionCachingEnabled" value="true" />
                 <property name="URL" value="jdbc:oracle:thin:@localhost:1521:XE" />
-                <property name="user" value="user" />
+                <property name="user" value="jeeappdb" />
                 <property name="password" value="password" />
         </bean>    
         
