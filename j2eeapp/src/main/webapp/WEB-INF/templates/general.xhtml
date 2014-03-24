@@ -15,10 +15,16 @@
                 <title><ui:insert name="title" /></title>
                 <link rel="stylesheet" type="text/css" href="${request.contextPath}/resources/css/style.css" />
                 <link rel="shortcut icon" href="${request.contextPath}/resources/css/images/favicon.ico" />
-        
+        		
         </h:head>
         
         <h:body>
+        
+        <p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>  
+              
+		<p:dialog modal="true" widgetVar="statusDialog" header="Processing..."   draggable="true" closable="false">  
+    		<p:graphicImage value="/css/images/ajaxloadingbar.gif" />  
+		</p:dialog>
         
         	<div id="container">
                         <div id="header">

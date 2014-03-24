@@ -14,7 +14,8 @@
         <ui:define name="content">
       		
       		<h:form id="loginForm">
-      			<p:fieldset legend="Authentification Form">
+      			<p:fieldset styleClass="fieldset" legend="Authentication Form">
+      			<p:focus />
       				<p:messages id="messages" />
       				<h:panelGrid id="logPanelGrid" style="margin: 0 auto; margin-top: 25px; text-align: right" cellspacing="8" columns="3">
       					<h:panelGroup>
@@ -32,7 +33,7 @@
                         <p:password id="pass" value="" required="true" label="Password" title="Please enter a password!" />
                         <p:tooltip for="pass" styleClass="tooltip" showEvent="focus" hideEvent="blur" />
                         
-                        <p:commandButton id="newUsertButton" action="newUser" update="" value="Sign Up" />
+                        <p:commandButton id="newUsertButton" action="newUser" immediate="true" icon="ui-icon-plus" value="Sign Up" />
       					<p:commandButton id="submitButton" action="signIn" update="logPanelGrid,messages" icon="ui-icon-check" value="Sign In" />
                        	
       				</h:panelGrid>
