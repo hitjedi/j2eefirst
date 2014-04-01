@@ -3,8 +3,15 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-        <import resource="datasource-config.xml"/>
-        <import resource="webflow-config.xml"/>
+        <import resource="datasource-config.xml" />
+        <import resource="webflow-config.xml" />        
         
+        <!-- DAO declarations -->
+        <bean id="userDao" class="com.example.j2eeapp.dao.UserJpaDao" />
+        
+        <!-- Services declarations -->
+        <bean id="userService" class="com.example.j2eeapp.services.implementation.UserServiceImplementation">
+                <property name="userDao" ref="userDao" />
+        </bean>
         
 </beans>
