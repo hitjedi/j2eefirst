@@ -7,5 +7,9 @@
 			<file>src/main/webapp/WEB-INF/flows/main/main-flow.xml</file>
 			<name><![CDATA[main]]></name>
 		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/account/account-flow.xml</file>
+			<name><![CDATA[account]]></name>
+		</config>
 	</configs>
 </webflow-project-description>

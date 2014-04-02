@@ -55,8 +55,7 @@
         <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
         
         <bean id="securityFlowExecutionListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" /> 
-            
-                        
+                                
                         
 </beans>
                         
